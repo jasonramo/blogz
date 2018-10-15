@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1 align='center'>Add a Blog Entry</h1>
+    <form method='POST'>
+        <label>Title for your new blog:<br>
+            <input type='text' name='title' value="{{request.form['title']}}" />
+        </label><br><br><br>
+        <label>Your new blog entry:<br>
+            <input type='text' name='body' value="{{request.form['body']}}" />
+            
+            <!--Stackoverflow says to add php code to keep...i added and it doesn't work.
+            <textarea rows='20' cols='40' name='body'></textarea>-->
+        </label><br>
+        <input type='submit' value='Add Entry' />
+    </form>
+
+{% endblock %}        
