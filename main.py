@@ -3,10 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://build-a-blog:admin@localhost:8889/build-a-blog'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blogz:admin@localhost:8889/blogz'
 app.config['SQLALCHEMY_ECHO'] = True  #provides the sql commands in the terminal
 db = SQLAlchemy(app)
-app.secret_key = 'mB4kPa934nwmi2o'
+app.secret_key = 'mB3kPa934nwmi2o'
 
 class Blog(db.Model):
 
