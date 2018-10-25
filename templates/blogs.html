@@ -2,15 +2,24 @@
 
 {% block content %}
 
-    <h1 align='center'>Build a Blog</h1>
+    <h1 align='center'>BLOGZ!</h1>
     {% if posts|length == 0 %}
     <p>No Blog Posts Yet</p>
     {% else %}
         <ul type='none'>
             {% for post in posts %}
-                <li><h3><a href="/blogs?id={{post.id}}">{{post.title}}</a></h3></li>
-                <li>{{post.body}}</li>
-                <br>
+                {% if user_view == 'individual' %}
+                    <li><h3><a>{{post.title}}</a></h3></li>
+                    <li>{{post.body}}</li>
+                    <li><a href="blogs?user={{post.owner.email}}">{{post.owner.email}}</a></li>
+                    <br>
+                {% else %}
+                    <li><h3><a href="blogs?id={{post.id}}">{{post.title}}</a></h3></li>
+                    <li>{{post.body}}</li>
+                    <br>
+                    <li><a href="blogs?user={{post.owner.email}}">{{post.owner.email}}</a></li>
+                    <hr>
+                {% endif %}
             {% endfor %}
         </ul>
     {% endif %}    
